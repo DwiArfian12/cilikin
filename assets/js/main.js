@@ -270,6 +270,8 @@ function showSize() {
   var befSize = Math.round(file.size / 1024);
   const befTxt = document.getElementById("befSize");
   befTxt.innerHTML = "Ukuran file upload: "+(befSize)+" KB";
+  const comBtn = document.getElementById("comBtn");
+  comBtn.style.display = "block";
 }
 
 function compress() {
@@ -290,7 +292,7 @@ function compress() {
         var befSize = Math.round(file.size / 1024);
         var aftSize = Math.round(blob.size / 1024);
         const url = URL.createObjectURL(blob);
-        const hasilTxt = document.getElementById("hasilTxt");
+        const divOutput = document.getElementById("divOutput");
         const downloadBtn = document.getElementById("download-btn");
         downloadBtn.href = url;
         var nama = "cilikin - "+file.name;
@@ -301,9 +303,7 @@ function compress() {
         const sizeTxt = document.getElementById("sizeTxt");
         sizeTxt.innerHTML = "Ukuran file setelah kompresi: "+aftSize+" KB";
         output.src = url;
-        hasilTxt.style.display = "block";
-        downloadBtn.style.display = "block";
-        output.style.display = "block";
+        divOutput.style.display = "block";
       }, "image/jpeg", 0.5);
     }
   }
